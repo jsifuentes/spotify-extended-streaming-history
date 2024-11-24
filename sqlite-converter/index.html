@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spotify History to SQLite Converter</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.12.0/sql-wasm.js"></script>
+    <style>
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .drop-zone {
+            border: 2px dashed #ccc;
+            padding: 20px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .drop-zone.dragover {
+            background-color: #e1e1e1;
+            border-color: #999;
+        }
+
+        #instructions ol li {
+            margin-bottom: 10px;
+        }
+
+        #status {
+            display: none;
+            text-align: center;
+            padding: 8px 0;
+            background-color: #f0f0f0;
+        }
+
+        #download-link {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Spotify History to SQLite Converter</h1>
+
+        <div id="form">
+            <div class="drop-zone" id="dropZone">
+                Drop your Spotify JSON files here or
+                <input type="file" id="fileInput" multiple accept=".json">
+            </div>
+            <button id="convertButton" disabled>Convert to SQLite</button>
+            <div id="status"></div>
+        </div>
+
+        <div id="instructions">
+            <h2>Instructions</h2>
+
+            <ol>
+                <li>Request your <strong>Extended Streaming History</strong> from <a href="https://www.spotify.com/us/account/privacy/">https://www.spotify.com/us/account/privacy/</a>. It may take a few days for your history to be available to download.</li>
+                <li>After your history is available, download the archive. There will be multiple .json files inside of the archive.</li>
+                <li>Drag and drop all of the .json files into the box above, or select them using the file input.</li>
+                <li>Click the "Convert to SQLite" button. Your streaming history will be converted to a SQLite database and downloaded to your computer.</li>
+            </ol>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
